@@ -1,0 +1,60 @@
+name: 'build_web'
+on:
+    push:
+        branches:
+            - main
+        tags:
+            - v*
+    workflow_dispatch:
+
+jobs:
+    build-web:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v4
+            - name: setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: latest
+                  cache: pnpm
+            - run: corepack enable
+            - name: install Rust nightly
+              uses: dtolnay/rust-toolchain@stable
+              with:
+                  toolchain: nightly
+            - name: install wasm-pack
+              run: npm install -g wasm-pack
+            - name: install app dependencies and build it
+              run: pnpm i && pnpm run build-web
+            # Run type check after the wasm package is built
+            - name: run tsc
+              run: pnpm tsc --noEmit
+            - name: upload files
+              uses: actions/upload-artifact@v4
+              with:
+                  name: bestcraft-dist
+                  path: dist/
+
+    deploy-web:
+        needs: build-web
+        if: startsWith(github.ref, 'refs/tags/')
+        runs-on: ubuntu-latest
+        environment:
+          name: github-pages
+          url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: download files
+              uses: actions/download-artifact@v4
+              with:
+                  name: bestcraft-dist
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                # Upload entire repository
+                path: '.'
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
