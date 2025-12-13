@@ -1,4 +1,4 @@
-name: 'build_web'
+name: 'build_web_GithubPage.yml'
 on:
     push:
         branches: ["publish-github-page"]
