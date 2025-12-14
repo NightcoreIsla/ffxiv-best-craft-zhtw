@@ -4,11 +4,7 @@ licenses-notices-3 = 您應該隨 BestCraft 收到一份 GNU Affero 通用公共
 copyright-notices = 
     版權所有 2025 Tnze. All Rights Reserved.
     引用的FFXIV相關資源 Copyright © 2010 - 2025 SQUARE ENIX CO., LTD.
-<<<<<<< HEAD
-
-=======
     繁化-Isla
->>>>>>> 12bb375 (style: 翻譯者加註)
 level = 等級
 recipe-level = 配方等級
 class-job-level = 特職等級
