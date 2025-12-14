@@ -83,4 +83,5 @@ export default defineConfig({
         sourcemap: process.env.VITE_BESTCRAFT_TARGET != 'tauri',
         target: 'esnext',
     },
+    base:  'ffxiv-best-craft-zhtw'
 });
