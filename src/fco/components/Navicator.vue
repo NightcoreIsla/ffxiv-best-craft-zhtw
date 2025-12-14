@@ -29,7 +29,7 @@ const menuOptions: MenuOption[] = [
             h(
                 RouterLink,
                 { to: { name: 'simulator' } },
-                { default: () => '模拟器' },
+                { default: () => '計算器' },
             ),
     },
     {
@@ -38,7 +38,7 @@ const menuOptions: MenuOption[] = [
             h(
                 RouterLink,
                 { to: { name: 'attributes' } },
-                { default: () => '状态参数' },
+                { default: () => '狀態參數' },
             ),
     },
 ];
@@ -47,7 +47,7 @@ const menuOptions: MenuOption[] = [
 <template>
     <div class="nav">
         <n-gradient-text class="title" :font-size="20" type="info">
-            《最终幻想14》生产模拟器
+            《最終幻想14》生產模擬器
         </n-gradient-text>
         <n-menu mode="horizontal" :options="menuOptions" />
     </div>
