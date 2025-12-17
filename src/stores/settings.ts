@@ -29,11 +29,11 @@ export type DataSourceID =
     | 'yyyy.games-beta'
     | 'cafe'
     | 'xivapi';
-export type DataSourceLangID = 'zh' | 'en' | 'de' | 'fr' | 'ja';
+export type DataSourceLangID = 'zh-CN' | 'zh-TW' | 'en' | 'de' | 'fr' | 'ja';
 
 export const dataSourceList: Map<string, DataSourceLangID[]> = new Map([
     ['local', []],
-    ['yyyy.games', ['zh', 'en', 'de', 'fr', 'ja']],
+    ['yyyy.games', ['zh-CN', 'zh-TW', 'en', 'de', 'fr', 'ja']],
     ['xivapi', ['en', 'de', 'fr', 'ja']],
 ]);
 if (!isTauri) {
@@ -133,6 +133,9 @@ export default defineStore('settings', {
                 (isWebsite || this.dataSource !== 'local')
             ) {
                 this.dataSource = 'yyyy.games';
+            }
+            if (String(this.dataSourceLang) == 'zh') {
+                this.dataSourceLang = 'zh-CN';
             }
         },
     },
