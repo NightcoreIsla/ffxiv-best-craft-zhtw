@@ -1,3 +1,33 @@
+# FFXIV-Best-Craft Documentation
+
+## Overview
+A crafting simulator with solver algorithms for Final Fantasy XIV (FF14) / 最终幻想14生产模拟器（附带智能求解算法）
+
+## Available Editions
+
+### Online Edition (在线版)
+- Access via: https://tnze.yyyy.games/#/
+
+### Desktop Edition (桌面版)
+- **Recommended Specs**: Windows 11/MacOS/Linux, 16GiB RAM
+- **Minimum Specs**: Windows 10, 8GiB RAM
+- **Download Locations**: 
+    - Gitee (Windows only): https://gitee.com/Tnze/ffxiv-best-craft/releases
+    - GitHub: https://github.com/Tnze/ffxiv-best-craft/releases/latest
+- **Installation Files by OS**:
+    - Windows: `.msi` or `.nsis` installers
+    - Mac: `dmg` or `app` files
+    - Debian/Ubuntu: `AppImage` or `deb` files
+    - Other Linux: `AppImage` file
+
+## Development Setup
+
+### Prerequisites
+- Node.js and pnpm
+- For Web: Rust, wasm-pack, wasm-bindgen-cli
+- For Tauri: Rust, Node, WebView2 (see Tauri Getting Started guide)
+
+### Installation
 # FFXIV-Best-Craft
 
 This is a crafting simulator with solver algorithms for Final Fantasy XIV(FF14).
@@ -96,3 +126,6 @@ cargo tauri build
 
 </p>
 </details>
+
+## 繁中宣傳位置
+- [巴哈姆特(bahamut)](https://forum.gamer.com.tw/Co.php?bsn=17608&sn=118237)
